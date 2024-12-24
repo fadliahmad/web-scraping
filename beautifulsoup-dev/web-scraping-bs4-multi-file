@@ -1,0 +1,30 @@
+from bs4 import BeautifulSoup 
+import requests 
+import time 
+
+root = 'https://subslikescript.com'
+website = f'{root}/movies' #target waebsite 
+result = requests.get(website) 
+content = result.text
+soup = BeautifulSoup(content, 'lxml')
+# print(soup.prettify()) 
+
+box = soup.find('article', class_='main-article') #find to get an element
+
+links=[] #create blank list
+for link in box.find_all('a', href=True): #find_all to get a list 
+    links.append(link['href']) #append to blank list we've created before
+
+for link in links: 
+    website = f'{root}/{link}' #target waebsite using variable 
+    result = requests.get(website) 
+    content = result.text
+    soup = BeautifulSoup(content, 'lxml')
+
+    box = soup.find('article', class_='main-article') #find to get an element
+    
+    title = soup.find('h1').get_text(strip=True, separator=' ')
+    transcript = soup.find('div', class_='full-script').get_text(strip=True, separator=' ')
+
+    with open(f'{title}.txt', 'w') as file: #title class.txt 
+        file.write(transcript) #to get a transcript

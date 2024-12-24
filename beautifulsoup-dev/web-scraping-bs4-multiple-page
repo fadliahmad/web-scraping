@@ -1,0 +1,51 @@
+from bs4 import BeautifulSoup 
+import requests 
+import time 
+ 
+root = 'https://subslikescript.com'
+website = f'{root}/movies_letter-A' #target waebsite 
+result = requests.get(website) 
+content = result.text
+soup = BeautifulSoup(content, 'lxml')
+# print(soup.prettify()) 
+
+# start pagination -- to get multiple pages in web
+pagination = soup.find('ul', class_='pagination') 
+pages = pagination.find_all('li', class_='page-item')
+last_page = pages[-2].text
+
+links=[] #create blank list
+for page in range(1, int(last_page)+1)[:1]: # to get array from 1 to last_page num; the square bracket just to try 1 page only
+    # https://subslikescript.com/movies_letter-A?page=1
+    # target waebsite using variable
+    result = requests.get(f'{website}?page={page}') 
+    content = result.text
+    soup = BeautifulSoup(content, 'lxml')
+    
+    box = soup.find('article', class_='main-article') #find to get an element
+ 
+    for link in box.find_all('a', href=True): #find_all to get a list 
+        links.append(link['href']) #append to blank list we've created before
+
+    for link in links: 
+        #handling error 
+        try: 
+            print(link)
+            # target waebsite using variable 
+            result = requests.get(f'{root}/{link}') 
+            content = result.text
+            soup = BeautifulSoup(content, 'lxml')
+
+            box = soup.find('article', class_='main-article') #find to get an element
+            
+            title = soup.find('h1').get_text(strip=True, separator=' ')
+            transcript = soup.find('div', class_='full-script').get_text(strip=True, separator=' ')
+
+            with open(f'{title}.txt', 'w') as file: #title class.txt 
+                file.write(transcript) #to get a transcript
+
+        except: 
+            print('--- Link is not working ---')
+            print(link)
+
+        
