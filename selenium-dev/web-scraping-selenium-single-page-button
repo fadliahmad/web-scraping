@@ -1,0 +1,40 @@
+from selenium import webdriver 
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+import pandas as pd
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
+
+website = 'https://www.adamchoi.co.uk/overs/detailed' 
+# Location of ChromeDriver
+chrome_options.add_argument('/Users/fadliahmadj/Downloads/chromedriver-mac-arm64/chromedriver') 
+# Set the executable path for the Chrome WebDriver
+driver = webdriver.Chrome(options=chrome_options)
+driver.get(website)
+
+# To Click button using analytics-event and function click() 
+all_matches_button = driver.find_element(By.XPATH, '//label[@analytics-event="All matches"]') 
+all_matches_button.click() 
+
+# To get only the sepsific row that containts higlight match and not the upcoming or odds row
+matches = driver.find_elements(By.XPATH, '//tr[contains(@class, "ng-scope isHighlightedRow") or contains(@class, "ng-scope isNotHighlightedRow")]') 
+
+date = [] 
+home_team = [] 
+score = [] 
+away_team = [] 
+
+for match in matches: 
+    date.append(match.find_element(By.XPATH, './td[1]').text)
+    home_team.append(match.find_element(By.XPATH, './td[2]').text)
+    score.append(match.find_element(By.XPATH, './td[3]').text)
+    away_team.append(match.find_element(By.XPATH, './td[4]').text)
+
+df = pd.DataFrame({'date':date 
+                   , 'home_team': home_team
+                   , 'score': score
+                   , 'away_team': away_team}) 
+
+df.to_csv('footbal_data_epl.csv', index=False)
+# driver.quit()
