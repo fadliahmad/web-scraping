@@ -29,7 +29,7 @@ for product in products:
 df_books = pd.DataFrame({'Title': book_title, 'Author': book_author, 'Length': book_length}) 
 df_books.to_csv('books.csv', index=False)
 
-#Close driver
+#Close driver 
 driver.quit() 
 print("Scraping completed. Data saved to 'books.csv'.")
 
