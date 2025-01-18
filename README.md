@@ -17,3 +17,6 @@ Executive summary:
       - Handling 'Dropdown' Selection on the website 
       - Extracting data from a Table and exporting data to a CSV file with 🐼 Pandas 
     🔄 Project 2.2: Dealing with Multiple Pages Using Selenium
+      - Handling Headless Mode 
+      - Handling Pagination Cases 
+      
