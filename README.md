@@ -20,4 +20,5 @@ Executive summary:
       - Handling Headless Mode 
       - Handling Pagination Cases 
       - Explicit Wait
+    🐍 Project 3.1: Introduction to ScraPy
 
