@@ -7,12 +7,15 @@ import pandas as pd
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
 
-website = 'https://www.audible.com/search' 
+website = 'https://web.archive.org/web/20211028034652/https://www.audible.com/search' 
 # Location of ChromeDriver
+chrome_options.headless = True
+chrome_options.add_argument('window-size=1920x1080')
 chrome_options.add_argument('/Users/fadliahmadj/Downloads/chromedriver-mac-arm64/chromedriver') 
 # Set the executable path for the Chrome WebDriver
 driver = webdriver.Chrome(options=chrome_options)
 driver.get(website)
+driver.maximize_window() 
 
 container = driver.find_element(By.XPATH, '//div[contains(@class, "adbl-impression-container") and contains(@data-widget, "productList")]') 
 products = container.find_elements(By.XPATH, './/li[contains(@class, "productListItem")]') 

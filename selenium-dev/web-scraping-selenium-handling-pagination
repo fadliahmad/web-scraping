@@ -1,0 +1,55 @@
+from selenium import webdriver 
+from selenium.webdriver.chrome.service import Service 
+from selenium.webdriver.common.by import By
+import pandas as pd
+import time 
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
+
+website = 'https://www.audible.com/adblbestsellers?ref_pageloadid=not_applicable&pf_rd_p=bb0efe44-14ef-41cc-91b0-c1b40e66ffe2&pf_rd_r=QZ71WA2CVGGCQHJZP143&plink=TzAMmlgSFQCH9b6Y&pageLoadId=pa9s78QxNASwAD14&creativeId=7ba42fdf-1145-4990-b754-d2de428ba482&ref=a_search_t1_navTop_pl0cg1c0r0' 
+# Location of ChromeDriver
+chrome_options.add_argument('/Users/fadliahmadj/Downloads/chromedriver-mac-arm64/chromedriver') 
+# Set the executable path for the Chrome WebDriver
+driver = webdriver.Chrome(options=chrome_options)
+driver.get(website)
+driver.maximize_window() 
+
+# Pagination 
+pagination = driver.find_element(By.XPATH, '//ul[contains(@class, "pagingElements")]') 
+pages = pagination.find_elements(By.XPATH, './li') 
+last_pages = int(pages[-2].text)
+
+current_page = 1 
+
+book_title = []
+book_author = [] 
+book_length = []
+
+while current_page <= last_pages: 
+    time.sleep(2)
+    # Locate element we want to get
+    container = driver.find_element(By.XPATH, '//div[contains(@class, "adbl-impression-container") and contains(@data-widget, "productList")]') 
+    products = container.find_elements(By.XPATH, './/li[contains(@class, "productListItem")]')  
+
+    for product in products: 
+        book_title.append(product.find_element(By.XPATH, './/h3[contains(@class, "bc-heading")]').text) 
+        book_author.append(product.find_element(By.XPATH, './/li[contains(@class, "authorLabel")]').text)
+        book_length.append(product.find_element(By.XPATH, './/li[contains(@class, "runtimeLabel")]').text) 
+
+    current_page = current_page+1
+
+    try: 
+        next_page = driver.find_element(By.XPATH, '//span[contains(@class, "nextButton")]') 
+        next_page.click() 
+    except: 
+        pass
+
+driver.quit() 
+
+df_books = pd.DataFrame({'Title': book_title, 'Author': book_author, 'Length': book_length}) 
+df_books.to_csv('books_pagination.csv', index=False)
+
+#Close driver 
+print("Scraping completed. Data saved to 'books_pagination.csv'.")
+
