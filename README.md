@@ -19,4 +19,5 @@ Executive summary:
     🔄 Project 2.2: Dealing with Multiple Pages Using Selenium
       - Handling Headless Mode 
       - Handling Pagination Cases 
-      
+      - Explicit Wait
+
