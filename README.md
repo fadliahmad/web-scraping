@@ -21,4 +21,11 @@ Executive summary:
       - Handling Pagination Cases 
       - Explicit Wait
     🐍 Project 3.1: Introduction to ScraPy
+      - Scrapy installation 
+      - Create a new project and spider 
+      - SCrapy templates 
+      - Scrapy commands and scrapy shell commands 
+      - Get a link listed in website 
+      - Absolute and relative links 
+      - Scraping data from multiple links 
 
