@@ -2,7 +2,7 @@
 scrapy startproject [project name] 
 
 -- To generate a new spider 
-scrapy genspider [spider name] [url] 
+scrapy genspider [spider name] [url, without https protocol] 
 
 -- To enter shell mode 
 scrapy shell [url] 
@@ -19,3 +19,9 @@ request.headers
 
 -- To get user agent 
 https://developers.whatismybrowser.com/ 
+
+-- To get scrapy list of generated spider template 
+scrapy genspider -l 
+
+-- To choose one of those template 
+scrapy genspider -t [template name: ie. crawl] [spider name] 
