@@ -36,4 +36,9 @@ Executive summary:
       - Create a new project subslikescript.com
       - Dealing with multiple pages using Scrapy 
       - Changing user-agent 
+    🐍 Project 3.4: Exporting Data to a Database
+      - Create a Pipeline
+      - Connect and Exporting into MongoDB
+  <img src="img/MongoDB_Result.png">
+      - Connect and Exporting into SQLite
 
