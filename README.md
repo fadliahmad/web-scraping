@@ -40,7 +40,7 @@ Executive summary:
       - Create a Pipeline
       - Connect and Export Data into MongoDB
 
-<img src="/Users/fadliahmadj/Documents/Documents - Fadli’s MacBook Pro/Projects/web-scraping/web_scraping_scrapy/img/MongoDB_Result.png"> 
+<img src="web-scraping/web_scraping_scrapy/img/MongoDB_Result.png"> 
 <em>Connect and Export into MongoDB Result</em>
 
       - Connect and Export Data into SQLite
