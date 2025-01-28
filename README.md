@@ -28,8 +28,12 @@ Executive summary:
       - Get a link listed in website 
       - Absolute and relative links 
       - Scraping data from multiple links 
-    🐍 Project 3.2: Introduction to ScraPy
+    🐍 Project 3.2: Audible Project
       - Create a new project audible.com 
+      - Dealing with multiple pages using Scrapy 
+      - Changing user-agent 
+    🐍 Project 3.3: Movie Transcripts Project
+      - Create a new project subslikescript.com
       - Dealing with multiple pages using Scrapy 
       - Changing user-agent 
 
