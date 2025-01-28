@@ -38,7 +38,10 @@ Executive summary:
       - Changing user-agent 
     🐍 Project 3.4: Exporting Data to a Database
       - Create a Pipeline
-      - Connect and Exporting into MongoDB
-  <img src="img/MongoDB_Result.png">
-      - Connect and Exporting into SQLite
+      - Connect and Export Data into MongoDB
+
+<img src="/Users/fadliahmadj/Documents/Documents - Fadli’s MacBook Pro/Projects/web-scraping/web_scraping_scrapy/img/MongoDB_Result.png"> 
+<em>Connect and Export into MongoDB Result</em>
+
+      - Connect and Export Data into SQLite
 
