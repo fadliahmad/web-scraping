@@ -23,7 +23,7 @@ Executive summary:
     🐍 Project 3.1: Introduction to ScraPy
       - Scrapy installation 
       - Create a new project and spider 
-      - SCrapy templates 
+      - Scrapy templates 
       - Scrapy commands and scrapy shell commands 
       - Get a link listed in website 
       - Absolute and relative links 

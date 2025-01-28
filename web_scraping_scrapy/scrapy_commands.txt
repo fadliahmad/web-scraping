@@ -1,0 +1,21 @@
+-- To Start a new Project 
+scrapy startproject [project name] 
+
+-- To generate a new spider 
+scrapy genspider [spider name] [url] 
+
+-- To enter shell mode 
+scrapy shell [url] 
+
+-- To start crawling 
+scrapy crawl [spider name] 
+
+-- To create file from scrap result 
+scrapy crawl [spider name] -o [file_name.csv or file_name.json] 
+
+-- To get user_agents 
+scrapy shell [url] 
+request.headers
+
+-- To get user agent 
+https://developers.whatismybrowser.com/ 

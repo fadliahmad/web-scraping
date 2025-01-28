@@ -18,8 +18,8 @@ class WorldometerSpider(scrapy.Spider):
         countries = response.xpath('//td/a') 
 
         for country in countries: 
-            country_name = country.xpath(".//text()").get()
-            link = country.xpath(".//@href").get()
+            country_name = country.xpath('.//text()').get()
+            link = country.xpath('.//@href').get()
 
             # yield{
             #     'country_name': country_name, 
@@ -37,11 +37,11 @@ class WorldometerSpider(scrapy.Spider):
     def parse_country(self, response): 
         # response.xpath("(//table[@class='table table-striped table-bordered table-hover table-condensed table-list'])[1]/tbody/tr") 
         country = response.request.meta['country']
-        rows = response.xpath("(//table[contains(@class, 'table')])[1]/tbody/tr")
+        rows = response.xpath('(//table[contains(@class, "table")])[1]/tbody/tr')
 
         for row in rows: 
-            year = row.xpath(".//td[1]/text()").get() 
-            population = row.xpath(".//td[2]/strong/text()").get() 
+            year = row.xpath('.//td[1]/text()').get() 
+            population = row.xpath('.//td[2]/strong/text()').get() 
             
             yield{ 
                 'country': country,
