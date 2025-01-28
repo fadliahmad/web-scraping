@@ -7,13 +7,21 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 import logging
+import pymongo
+import certifi
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
-class WebScrapingScrapyPipeline:
+class MongoDBPipeline:
+    collection_name = 'transcripts'
+    
     def open_spider(self, spider): 
-        logging.warning('Spider Opened - Pipeline') 
+        self.client = pymongo.MongoClient("CONNECTION_STRING", server_api=ServerApi('1'), tlsCAFile=certifi.where())
+        self.db = self.client['My_Database']
 
     def close_spider(self, spider): 
-        logging.warning('Spider Closed - Pipeline') 
+        self.client.close() 
 
     def process_item(self, item, spider):
+        self.db[self.collection_name].insert(item)
         return item

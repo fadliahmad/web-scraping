@@ -34,7 +34,7 @@ class TranscriptsSpider(CrawlSpider):
             'title': article.xpath('./h1/text()').get(), 
             'plot': article.xpath('./p[@class="plot"]/text()').get(), 
             # 'transcript': article.xpath('./div[@class="full-script"]/div/p/text()').getall(),
-            'transcript': article.xpath('./div[@class="full-script"]/div/p/text()').get(),
+            # 'transcript': article.xpath('./div[@class="full-script"]/div/p/text()').get(),
             'url': response.url, 
-            'user-agent': response.request.headers['User-Agent'], 
+            # 'user-agent': response.request.headers['User-Agent'], 
         }
