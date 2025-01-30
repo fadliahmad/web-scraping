@@ -47,6 +47,7 @@ Executive summary:
 <em>Export into SQLite Result</em>
 
     🐍 Project 3.4: Scraping API and Login to Website with Scrapy
-      - 
-      - 
+      - Create a new project for Scraping API
+      - Dealing with Pagination in API
+      - Login into Website using Scrapy
 
