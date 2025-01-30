@@ -29,12 +29,19 @@ class TranscriptsSpider(CrawlSpider):
 
     def parse_item(self, response):
         article = response.xpath('//article[@class="main-article"]')
+        # add this convertion from list to string to insert into SQLite 
+        transcripts_list = article.xpath('./div[@class="full-script"]/div/p/text()').getall() 
+        transcripts_string = ' '.join(transcripts_list)
         
         yield { 
             'title': article.xpath('./h1/text()').get(), 
             'plot': article.xpath('./p[@class="plot"]/text()').get(), 
             # 'transcript': article.xpath('./div[@class="full-script"]/div/p/text()').getall(),
             # 'transcript': article.xpath('./div[@class="full-script"]/div/p/text()').get(),
+
+            # add this convertion from list to string to insert into SQLite 
+            'transcripts':transcripts_string,
+            
             'url': response.url, 
             # 'user-agent': response.request.headers['User-Agent'], 
         }

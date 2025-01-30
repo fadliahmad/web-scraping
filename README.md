@@ -32,16 +32,21 @@ Executive summary:
       - Create a new project audible.com 
       - Dealing with multiple pages using Scrapy 
       - Changing user-agent 
-    🐍 Project 3.3: Movie Transcripts Project
+    🐍 Project 3.3: Movie Transcripts Project and Dealing with Database
       - Create a new project subslikescript.com
       - Dealing with multiple pages using Scrapy 
       - Changing user-agent 
-    🐍 Project 3.4: Exporting Data to a Database
       - Create a Pipeline
       - Connect and Export Data into MongoDB
 
 <img src="web_scraping_scrapy/img/MongoDB_Result.png"> 
 <em>Connect and Export into MongoDB Result</em>
 
-      - Connect and Export Data into SQLite
+      - Export Data into SQLite
+<img src="web_scraping_scrapy/img/SQLite Result.png"> 
+<em>Export into SQLite Result</em>
+
+    🐍 Project 3.4: Scraping API and Login to Website with Scrapy
+      - 
+      - 
 
