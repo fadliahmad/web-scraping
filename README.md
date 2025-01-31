@@ -51,3 +51,6 @@ Executive summary:
       - Dealing with Pagination in API
       - Login into Website using Scrapy
 
+    💧 Project 4.1: Using Splash in Scrapy 
+      - Scrapy alone doesn't let us scrape JavaScript-driven websites, so we have to add Splash to it. 
+      - Splash installation and setup in Scrapy 
